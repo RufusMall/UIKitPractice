@@ -39,3 +39,7 @@ class StoryCollectionViewController: UICollectionViewController {
 }
 
 
+import SwiftUI
+
+class StoryCollectionViewPreview: HomeControllerPreview, PreviewProvider {
+}

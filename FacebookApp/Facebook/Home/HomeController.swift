@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
-class HomeController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var collectionView: UICollectionView! = nil
+    let onYourMindReuseID = "OnYourMindHeader"
+    let StoryHeaderReuseID = "StoryHeader"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +26,15 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
         
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-            flowLayout.headerReferenceSize = CGSize(width:0, height: 200)
-            flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+            flowLayout.headerReferenceSize = CGSize(width: 0,height: 50)
         }
         
         collectionView.register(Postcell.self, forCellWithReuseIdentifier:String(describing: Postcell.self))
-        collectionView.register(StoryHeader.self, forSupplementaryViewOfKind:UICollectionView.elementKindSectionHeader, withReuseIdentifier: "StoryHeader")
+        collectionView.register(StoryHeader.self, forSupplementaryViewOfKind:UICollectionView.elementKindSectionHeader, withReuseIdentifier: StoryHeaderReuseID)
+        collectionView.register(OnYourMindHeader.self, forSupplementaryViewOfKind:UICollectionView.elementKindSectionHeader, withReuseIdentifier: onYourMindReuseID)
         
         collectionView.dataSource = self
+        collectionView.delegate = self
         self.view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -44,7 +47,14 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "StoryHeader", for: indexPath) as! StoryHeader
+        
+        var header: UICollectionReusableView! = nil
+        
+        if indexPath.section == 0 {
+            header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: onYourMindReuseID, for: indexPath) as! OnYourMindHeader
+        } else if indexPath.section == 1 {
+            header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: StoryHeaderReuseID, for: indexPath) as! StoryHeader
+        }
         return header
     }
     
@@ -55,11 +65,30 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 0
+        }
         return 5000
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: 0, height: 90)
+        } else {
+            return CGSize(width: 0, height: 200)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        if section == 0 {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        }
+        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
     
     @objc func refreshChanged(sender: UIRefreshControl) {
@@ -71,15 +100,15 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
 
 import SwiftUI
 
-struct MainPreview: PreviewProvider {
+class HomeControllerPreview {
     struct ContainerView : UIViewControllerRepresentable {
         typealias UIViewControllerType = HomeController
         
-        func updateUIViewController(_ uiViewController: HomeController, context: UIViewControllerRepresentableContext<MainPreview.ContainerView>) {
+        func updateUIViewController(_ uiViewController: HomeController, context: UIViewControllerRepresentableContext<HomeControllerPreview.ContainerView>) {
             
         }
         
-        func makeUIViewController(context: UIViewControllerRepresentableContext<MainPreview.ContainerView>) -> MainPreview.ContainerView.UIViewControllerType {
+        func makeUIViewController(context: UIViewControllerRepresentableContext<HomeControllerPreview.ContainerView>) -> HomeControllerPreview.ContainerView.UIViewControllerType {
             return HomeController()
         }
     }
@@ -88,3 +117,7 @@ struct MainPreview: PreviewProvider {
         ContainerView().edgesIgnoringSafeArea(.all)
     }
 }
+
+class HomeControllerPreviewProvider: HomeControllerPreview, PreviewProvider {
+}
+

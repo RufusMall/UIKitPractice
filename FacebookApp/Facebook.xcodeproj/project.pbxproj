@@ -12,6 +12,8 @@
 		AC2AC355236C8E69003588EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2AC354236C8E69003588EF /* Assets.xcassets */; };
 		AC2AC358236C8E69003588EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2AC357236C8E69003588EF /* Preview Assets.xcassets */; };
 		AC2AC35B236C8E69003588EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2AC359236C8E69003588EF /* LaunchScreen.storyboard */; };
+		ACB3EBF9238713590038060B /* OnYourMindHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3EBF8238713590038060B /* OnYourMindHeader.swift */; };
+		ACB3EBFD238772C90038060B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3EBFB23871E330038060B /* UIView+Constraints.swift */; };
 		ACE8B0102374FD9A00E48695 /* StoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8B00F2374FD9A00E48695 /* StoryHeader.swift */; };
 		ACE8B0132374FDC900E48695 /* StoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8B0122374FDC900E48695 /* StoryCollectionViewController.swift */; };
 		ACE8B0152374FE2200E48695 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8B0142374FE2200E48695 /* StoryCell.swift */; };
@@ -27,6 +29,8 @@
 		AC2AC357236C8E69003588EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC2AC35A236C8E69003588EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC2AC35C236C8E69003588EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACB3EBF8238713590038060B /* OnYourMindHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnYourMindHeader.swift; sourceTree = "<group>"; };
+		ACB3EBFB23871E330038060B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		ACE8B00F2374FD9A00E48695 /* StoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryHeader.swift; sourceTree = "<group>"; };
 		ACE8B0122374FDC900E48695 /* StoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewController.swift; sourceTree = "<group>"; };
 		ACE8B0142374FE2200E48695 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 				ACFA036A2374599700ECDD23 /* Debug */,
 				ACFA03692374593600ECDD23 /* Home */,
 				AC2AC34E236C8E65003588EF /* AppDelegate.swift */,
+				ACB3EBFB23871E330038060B /* UIView+Constraints.swift */,
 				AC2AC354236C8E69003588EF /* Assets.xcassets */,
 				AC2AC359236C8E69003588EF /* LaunchScreen.storyboard */,
 				AC2AC35C236C8E69003588EF /* Info.plist */,
@@ -115,6 +120,7 @@
 			children = (
 				ACFA036E23745FA300ECDD23 /* PostCell.swift */,
 				ACE8B00F2374FD9A00E48695 /* StoryHeader.swift */,
+				ACB3EBF8238713590038060B /* OnYourMindHeader.swift */,
 			);
 			path = HomeCells;
 			sourceTree = "<group>";
@@ -193,9 +199,11 @@
 				AC1448AD236CC3CF00FCA272 /* HomeController.swift in Sources */,
 				AC2AC34F236C8E65003588EF /* AppDelegate.swift in Sources */,
 				ACFA036C237459A800ECDD23 /* UIView+RandomColor.swift in Sources */,
+				ACB3EBFD238772C90038060B /* UIView+Constraints.swift in Sources */,
 				ACE8B0132374FDC900E48695 /* StoryCollectionViewController.swift in Sources */,
 				ACE8B0102374FD9A00E48695 /* StoryHeader.swift in Sources */,
 				ACFA036F23745FA300ECDD23 /* PostCell.swift in Sources */,
+				ACB3EBF9238713590038060B /* OnYourMindHeader.swift in Sources */,
 				ACE8B0152374FE2200E48695 /* StoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

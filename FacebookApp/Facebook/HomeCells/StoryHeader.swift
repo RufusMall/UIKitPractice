@@ -28,3 +28,8 @@ class StoryHeader: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+import SwiftUI
+
+class StoryHeaderPreview: HomeControllerPreview, PreviewProvider {
+}

@@ -65,7 +65,6 @@ class PostHeaderView: UIView {
 }
 
 class Postcell : UICollectionViewCell {
-    
     let contentImageView: UIImageView = {
         let imageView = UIImageView(image:UIImage(named:"rufusbeach"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -102,16 +101,8 @@ class Postcell : UICollectionViewCell {
         
         widthConstraint?.isActive = true
         
-        NSLayoutConstraint.activate([
-            contentView.leftAnchor.constraint(equalTo: leftAnchor),
-            contentView.rightAnchor.constraint(equalTo: rightAnchor),
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-        
-        
+        contentView.constrainPinningEdgesToSuperview()
         let postHeader = PostHeaderView(frame: .zero)
-        
         
         let headerAndtextVStack = UIStackView(arrangedSubviews:[postHeader, textLabel])
         headerAndtextVStack.translatesAutoresizingMaskIntoConstraints = false
@@ -151,12 +142,7 @@ class Postcell : UICollectionViewCell {
         contentStack.addArrangedSubview(actionStackView)
         contentStack.spacing = 12
         
-        NSLayoutConstraint.activate([
-            contentView.leftAnchor.constraint(equalTo: contentStack.leftAnchor),
-            contentView.rightAnchor.constraint(equalTo: contentStack.rightAnchor),
-            contentView.topAnchor.constraint(equalTo: contentStack.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: contentStack.bottomAnchor)
-        ])
+        contentStack.constrainPinningEdgesToSuperview()
         backgroundColor = .systemBackground
         //        randomColorViews()
     }
@@ -172,4 +158,9 @@ class Postcell : UICollectionViewCell {
     override func prepareForReuse() {
         self.textLabel.text = ""
     }
+}
+
+import SwiftUI
+
+class PostCellPreview: HomeControllerPreview, PreviewProvider {
 }

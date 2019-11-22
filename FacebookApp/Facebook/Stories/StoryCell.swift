@@ -126,20 +126,7 @@ class StoryCell: UICollectionViewCell {
 
 import SwiftUI
 
-struct CellPreview: PreviewProvider {
-    struct ContainerView : UIViewControllerRepresentable {
-        typealias UIViewControllerType = HomeController
-        
-        func updateUIViewController(_ uiViewController: HomeController, context: UIViewControllerRepresentableContext<CellPreview.ContainerView>) {
-            
-        }
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<CellPreview.ContainerView>) -> CellPreview.ContainerView.UIViewControllerType {
-            return HomeController()
-        }
-    }
-    
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
+class StoryCellPreview: HomeControllerPreview, PreviewProvider {
 }
+
+
