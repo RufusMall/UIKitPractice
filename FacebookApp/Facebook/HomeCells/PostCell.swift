@@ -11,13 +11,10 @@ import UIKit
 
 class PostHeaderView: UIView {
     let imageView: UIView = {
-        let imageView = UIImageView(image:UIImage(named:"rufusbeach150"))
         let size = CGFloat(50)
+        let imageView = CircleImageView(image:UIImage(named:"rufusbeach150"), diameter: size)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = size / 2
         return  imageView
     }()
     

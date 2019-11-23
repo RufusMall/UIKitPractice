@@ -61,17 +61,13 @@ class OnYourMindHeader: UICollectionReusableView {
         onYourMindButton.contentHorizontalAlignment = .left
         onYourMindButton.contentEdgeInsets = .init(top: 8, left: 16, bottom: 8, right: 8)
 
-        let imageView = UIImageView(image:UIImage(named:"rufusbeach150"))
-        let size = CGFloat(46)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        let diameter = CGFloat(46)
+        let profileImageView = CircleImageView(image: UIImage(named:"rufusbeach"), diameter: diameter)
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        profileImageView.widthAnchor.constraint(equalToConstant: diameter).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: diameter).isActive = true
         
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = size / 2
-        imageView.widthAnchor.constraint(equalToConstant: size).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: size).isActive = true
-        
-        onYourMindStack.addArrangedSubview(imageView)
+        onYourMindStack.addArrangedSubview(profileImageView)
         onYourMindStack.addArrangedSubview(onYourMindButton)
         
         mainStack.addArrangedSubview(onYourMindStack)

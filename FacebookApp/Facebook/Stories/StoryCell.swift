@@ -59,22 +59,19 @@ class StoryCell: UICollectionViewCell {
         
         let profileCircleContainerView = UIView()
         
-        let profileCircleImage = UIImageView(image:UIImage(named: "rufusbeach50"))
-        profileCircleContainerView.addSubview(profileCircleImage)
-        profileCircleImage.translatesAutoresizingMaskIntoConstraints = false
-        profileCircleImage.backgroundColor = .blue
-        profileCircleImage.clipsToBounds = true
-        profileCircleImage.layer.borderColor = UIColor.blue.cgColor
-        profileCircleImage.layer.borderWidth = 3.0
+        let diameter: CGFloat = 36.0
         
-        let size: CGFloat = 36.0
+        let profileImageView = CircleImageView(image: UIImage(named:"rufusbeach50"), diameter: diameter)
+        profileCircleContainerView.addSubview(profileImageView)
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        profileImageView.widthAnchor.constraint(equalToConstant: diameter).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: diameter).isActive = true
+        profileImageView.layer.borderColor = UIColor.blue.cgColor
+        profileImageView.layer.borderWidth = 3.0
+        
         let circleInset: CGFloat = 6.0
-        profileCircleImage.leftAnchor.constraint(equalTo: profileCircleContainerView.leftAnchor, constant: circleInset).isActive = true
-        profileCircleImage.topAnchor.constraint(equalTo: profileCircleContainerView.topAnchor, constant: circleInset).isActive = true
-        
-        profileCircleImage.widthAnchor.constraint(equalToConstant: size).isActive = true
-        profileCircleImage.heightAnchor.constraint(equalToConstant: size).isActive = true
-        profileCircleImage.layer.cornerRadius = size / 2
+        profileImageView.leftAnchor.constraint(equalTo: profileCircleContainerView.leftAnchor, constant: circleInset).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: profileCircleContainerView.topAnchor, constant: circleInset).isActive = true
         
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
