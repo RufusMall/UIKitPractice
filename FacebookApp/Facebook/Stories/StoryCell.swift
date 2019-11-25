@@ -66,7 +66,7 @@ class StoryCell: UICollectionViewCell {
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.widthAnchor.constraint(equalToConstant: diameter).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: diameter).isActive = true
-        profileImageView.layer.borderColor = UIColor.blue.cgColor
+        profileImageView.layer.borderColor = UIColor.systemBlue.cgColor
         profileImageView.layer.borderWidth = 3.0
         
         let circleInset: CGFloat = 6.0

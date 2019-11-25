@@ -114,19 +114,19 @@ class Postcell : UICollectionViewCell {
         contentView.addSubview(contentStack)
         
         let actionBtnTintColor = UIColor.darkGray
-        let likeBtn = UIButton(type: .roundedRect)
+        let likeBtn = FacebookButton()
         likeBtn.translatesAutoresizingMaskIntoConstraints = false
         likeBtn.setTitle("Like", for: .normal)
         likeBtn.tintColor = actionBtnTintColor
         
         likeBtn.addTarget(self, action: #selector(likePressed), for: .touchUpInside)
         
-        let commentBtn = UIButton(type: .roundedRect)
+        let commentBtn = FacebookButton()
         commentBtn.translatesAutoresizingMaskIntoConstraints = false
         commentBtn.setTitle("Comment", for: .normal)
         commentBtn.tintColor = actionBtnTintColor
         
-        let shareBtn = UIButton(type: .roundedRect)
+        let shareBtn = FacebookButton()
         shareBtn.translatesAutoresizingMaskIntoConstraints = false
         shareBtn.setTitle("Share", for: .normal)
         shareBtn.tintColor = actionBtnTintColor

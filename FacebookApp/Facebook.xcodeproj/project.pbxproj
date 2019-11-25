@@ -12,6 +12,7 @@
 		AC2AC355236C8E69003588EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2AC354236C8E69003588EF /* Assets.xcassets */; };
 		AC2AC358236C8E69003588EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2AC357236C8E69003588EF /* Preview Assets.xcassets */; };
 		AC2AC35B236C8E69003588EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2AC359236C8E69003588EF /* LaunchScreen.storyboard */; };
+		AC9D7DF32389CF2F000C937F /* FacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D7DF22389CF2F000C937F /* FacebookButton.swift */; };
 		ACB3EBF9238713590038060B /* OnYourMindHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3EBF8238713590038060B /* OnYourMindHeader.swift */; };
 		ACB3EBFD238772C90038060B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3EBFB23871E330038060B /* UIView+Constraints.swift */; };
 		ACB3EC00238894D50038060B /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB3EBFF238894D40038060B /* CircleImageView.swift */; };
@@ -30,6 +31,7 @@
 		AC2AC357236C8E69003588EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC2AC35A236C8E69003588EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC2AC35C236C8E69003588EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC9D7DF22389CF2F000C937F /* FacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookButton.swift; sourceTree = "<group>"; };
 		ACB3EBF8238713590038060B /* OnYourMindHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnYourMindHeader.swift; sourceTree = "<group>"; };
 		ACB3EBFB23871E330038060B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		ACB3EBFF238894D40038060B /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		AC2AC34D236C8E65003588EF /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				AC9D7DF12389CF1F000C937F /* CommonViews */,
 				ACE8B0112374FDB600E48695 /* Stories */,
 				ACFA036D23745F8500ECDD23 /* HomeCells */,
 				ACFA036A2374599700ECDD23 /* Debug */,
@@ -91,6 +94,14 @@
 				AC2AC357236C8E69003588EF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AC9D7DF12389CF1F000C937F /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				AC9D7DF22389CF2F000C937F /* FacebookButton.swift */,
+			);
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 		ACE8B0112374FDB600E48695 /* Stories */ = {
@@ -203,6 +214,7 @@
 				AC2AC34F236C8E65003588EF /* AppDelegate.swift in Sources */,
 				ACFA036C237459A800ECDD23 /* UIView+RandomColor.swift in Sources */,
 				ACB3EBFD238772C90038060B /* UIView+Constraints.swift in Sources */,
+				AC9D7DF32389CF2F000C937F /* FacebookButton.swift in Sources */,
 				ACE8B0132374FDC900E48695 /* StoryCollectionViewController.swift in Sources */,
 				ACE8B0102374FD9A00E48695 /* StoryHeader.swift in Sources */,
 				ACFA036F23745FA300ECDD23 /* PostCell.swift in Sources */,

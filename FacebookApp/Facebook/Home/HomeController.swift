@@ -15,6 +15,41 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
     let onYourMindReuseID = "OnYourMindHeader"
     let StoryHeaderReuseID = "StoryHeader"
     
+    var titleView: UIView = {
+        let contentStack = UIStackView()
+        contentStack.isLayoutMarginsRelativeArrangement = true
+        contentStack.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "facebook"
+        titleLabel.textColor = .systemBlue
+        titleLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 32.0)
+        
+        contentStack.addArrangedSubview(titleLabel)
+        
+        let searchButton = UIButton(type: .contactAdd)
+        
+        let messengerButton = UIButton(type: .close)
+        
+        contentStack.addArrangedSubview(searchButton)
+        contentStack.addArrangedSubview(messengerButton)
+        
+        let containerView = UIView()
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.addSubview(contentStack)
+        
+        contentStack.constrainPinningEdgesToSuperview()
+        return containerView
+    }()
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        titleView.leadingAnchor.constraint(equalTo: titleView.superview!.leadingAnchor, constant: rint(systemMinimumLayoutMargins.leading)).isActive = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +79,28 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
         collectionView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         collectionView.backgroundColor = .tertiarySystemGroupedBackground
         collectionView.showsVerticalScrollIndicator = false
+        
+        self.navigationItem.titleView = titleView
+        
+        if let navBar = navigationController?.navigationBar {
+            navBar.shadowImage = UIImage()
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        var offset = scrollView.contentOffset.y + self.view.safeAreaLayoutGuide.layoutFrame.minY
+        offset = max(0, offset)
+        
+        let statusBarHeight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        offset = min(statusBarHeight, offset)
+        
+        let alpha: CGFloat = 1.0 - (offset / statusBarHeight)
+        
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.transform = CGAffineTransform(translationX: 0, y: -offset)
+            self.navigationItem.titleView?.alpha = alpha
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -77,7 +134,7 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
-            return CGSize(width: 0, height: 90)
+            return CGSize(width: 0, height: 122)
         } else {
             return CGSize(width: 0, height: 200)
         }
@@ -102,14 +159,14 @@ import SwiftUI
 
 class HomeControllerPreview {
     struct ContainerView : UIViewControllerRepresentable {
-        typealias UIViewControllerType = HomeController
+        typealias UIViewControllerType = UINavigationController
         
-        func updateUIViewController(_ uiViewController: HomeController, context: UIViewControllerRepresentableContext<HomeControllerPreview.ContainerView>) {
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<HomeControllerPreview.ContainerView>) {
             
         }
         
         func makeUIViewController(context: UIViewControllerRepresentableContext<HomeControllerPreview.ContainerView>) -> HomeControllerPreview.ContainerView.UIViewControllerType {
-            return HomeController()
+            return UINavigationController(rootViewController: HomeController())
         }
     }
     
@@ -120,4 +177,3 @@ class HomeControllerPreview {
 
 class HomeControllerPreviewProvider: HomeControllerPreview, PreviewProvider {
 }
-

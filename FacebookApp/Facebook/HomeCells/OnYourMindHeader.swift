@@ -12,21 +12,21 @@ class OnYourMindHeader: UICollectionReusableView {
     fileprivate func createButtonStack() -> UIStackView {
         
         let buttonStack = UIStackView()
-        let liveButton = UIButton(type: .roundedRect)
+        let liveButton = FacebookButton()
         liveButton.translatesAutoresizingMaskIntoConstraints = false
         liveButton.setTitle("Live", for: .normal)
         
-        let photoButton = UIButton(type: .roundedRect)
+        let photoButton = FacebookButton()
         photoButton.translatesAutoresizingMaskIntoConstraints = false
         photoButton.setTitle("Photo", for: .normal)
         
         
-        let checkInButton = UIButton(type: .roundedRect)
+        let checkInButton = FacebookButton()
         checkInButton.translatesAutoresizingMaskIntoConstraints = false
         checkInButton.setTitle("Check In", for: .normal)
         
-        buttonStack.addArrangedSubview(photoButton)
         buttonStack.addArrangedSubview(liveButton)
+        buttonStack.addArrangedSubview(photoButton)
         buttonStack.addArrangedSubview(checkInButton)
         buttonStack.distribution = .fillEqually
         buttonStack.alignment = .fill
@@ -52,9 +52,9 @@ class OnYourMindHeader: UICollectionReusableView {
         let onYourMindStack = UIStackView()
         onYourMindStack.isLayoutMarginsRelativeArrangement = true
         let margin = CGFloat(8)
-        onYourMindStack.layoutMargins = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+        onYourMindStack.layoutMargins = UIEdgeInsets(top: margin * 2, left: margin, bottom: margin * 2, right: margin)
         
-        let onYourMindButton = UIButton(type: .roundedRect)
+        let onYourMindButton = FacebookButton()
         onYourMindButton.translatesAutoresizingMaskIntoConstraints = false
         onYourMindButton.setTitle("What's on your mind?", for: .normal)
         onYourMindButton.titleLabel?.textAlignment = .left
