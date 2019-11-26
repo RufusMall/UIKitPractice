@@ -88,7 +88,7 @@ class Postcell : UICollectionViewCell {
     }
     
     override init(frame: CGRect) {
-        self.width = 400
+        self.width = 10
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         widthConstraint = widthAnchor.constraint(equalToConstant: 1)
@@ -134,14 +134,16 @@ class Postcell : UICollectionViewCell {
         let actionStackView = UIStackView(arrangedSubviews: [likeBtn, commentBtn, shareBtn])
         actionStackView.axis = .horizontal
         actionStackView.distribution = .fillEqually
-        //        actionStackView.layoutMargins = .init(top: 0, left: 0, bottom: 6, right: 0)
+        actionStackView.preservesSuperviewLayoutMargins = true
+//        actionStackView.layoutMargins = .init(top: 0, left: 0, bottom: 6, right: 0)
         actionStackView.isLayoutMarginsRelativeArrangement = true
         contentStack.addArrangedSubview(actionStackView)
         contentStack.spacing = 12
-        
+//        contentStack.layoutMargins = .init(top: 8, left: 0, bottom: 8, right: 0)
+        contentStack.isLayoutMarginsRelativeArrangement = true
         contentStack.constrainPinningEdgesToSuperview()
         backgroundColor = .systemBackground
-        //        randomColorViews()
+//                randomColorViews()
     }
     
     @objc func likePressed(sender:UIButton) {
@@ -159,5 +161,5 @@ class Postcell : UICollectionViewCell {
 
 import SwiftUI
 
-class PostCellPreview: HomeControllerPreview, PreviewProvider {
+class PostCellPreviewProvider: HomePreviewProvider, PreviewProvider {
 }

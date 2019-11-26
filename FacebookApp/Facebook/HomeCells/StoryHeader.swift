@@ -31,5 +31,5 @@ class StoryHeader: UICollectionReusableView {
 
 import SwiftUI
 
-class StoryHeaderPreview: HomeControllerPreview, PreviewProvider {
+class StoryHeaderPreview: HomePreviewProvider, PreviewProvider {
 }

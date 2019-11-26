@@ -89,5 +89,5 @@ class OnYourMindHeader: UICollectionReusableView {
 
 import SwiftUI
 
-class OnYourMindHeaderPreview: HomeControllerPreview, PreviewProvider {
+class OnYourMindHeaderPreview: HomePreviewProvider, PreviewProvider {
 }

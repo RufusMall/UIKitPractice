@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class HomeViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var collectionView: UICollectionView! = nil
     let onYourMindReuseID = "OnYourMindHeader"
@@ -44,15 +44,15 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
         contentStack.constrainPinningEdgesToSuperview()
         return containerView
     }()
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        titleView.leadingAnchor.constraint(equalTo: titleView.superview!.leadingAnchor, constant: rint(systemMinimumLayoutMargins.leading)).isActive = true
+        titleView.leadingAnchor.constraint(equalTo: titleView.superview!.leadingAnchor, constant: systemMinimumLayoutMargins.leading).isActive = true
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.view.backgroundColor = UIColor.systemRed
         collectionView = UICollectionView(frame: .zero,collectionViewLayout: UICollectionViewFlowLayout())
         
@@ -88,7 +88,6 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         var offset = scrollView.contentOffset.y + self.view.safeAreaLayoutGuide.layoutFrame.minY
         offset = max(0, offset)
         
@@ -151,29 +150,18 @@ class HomeController : UIViewController, UICollectionViewDataSource, UICollectio
     @objc func refreshChanged(sender: UIRefreshControl) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
             sender.endRefreshing()
+//            self.view.randomColorViews()
         })
     }
 }
 
 import SwiftUI
 
-class HomeControllerPreview {
-    struct ContainerView : UIViewControllerRepresentable {
-        typealias UIViewControllerType = UINavigationController
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<HomeControllerPreview.ContainerView>) {
-            
-        }
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<HomeControllerPreview.ContainerView>) -> HomeControllerPreview.ContainerView.UIViewControllerType {
-            return UINavigationController(rootViewController: HomeController())
-        }
-    }
-    
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
+class HomeControllerPreviewProvider: HomePreviewProvider, PreviewProvider {
 }
 
-class HomeControllerPreviewProvider: HomeControllerPreview, PreviewProvider {
+class HomePreviewProvider: ViewControllerPreviewProvider<HomeViewController> {
+    override class func makeController() -> UIViewController {
+        return UINavigationController(rootViewController: HomeViewController())
+    }
 }

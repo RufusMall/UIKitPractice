@@ -123,7 +123,5 @@ class StoryCell: UICollectionViewCell {
 
 import SwiftUI
 
-class StoryCellPreview: HomeControllerPreview, PreviewProvider {
+class StoryCellPreview: HomePreviewProvider, PreviewProvider {
 }
-
-

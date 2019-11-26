@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC1448AD236CC3CF00FCA272 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1448AC236CC3CF00FCA272 /* HomeController.swift */; };
+		AC1448AD236CC3CF00FCA272 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1448AC236CC3CF00FCA272 /* HomeViewController.swift */; };
+		AC1D0CB2238CD4FC00B01DC5 /* ViewControllerPreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D0CB1238CD4FC00B01DC5 /* ViewControllerPreviewProvider.swift */; };
 		AC2AC34F236C8E65003588EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AC34E236C8E65003588EF /* AppDelegate.swift */; };
 		AC2AC355236C8E69003588EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2AC354236C8E69003588EF /* Assets.xcassets */; };
 		AC2AC358236C8E69003588EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2AC357236C8E69003588EF /* Preview Assets.xcassets */; };
@@ -24,7 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC1448AC236CC3CF00FCA272 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		AC1448AC236CC3CF00FCA272 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AC1D0CB1238CD4FC00B01DC5 /* ViewControllerPreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPreviewProvider.swift; sourceTree = "<group>"; };
 		AC2AC34B236C8E65003588EF /* Facebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Facebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2AC34E236C8E65003588EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC2AC354236C8E69003588EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC1D0CB0238CD4DC00B01DC5 /* UIKitPreview */ = {
+			isa = PBXGroup;
+			children = (
+				AC1D0CB1238CD4FC00B01DC5 /* ViewControllerPreviewProvider.swift */,
+			);
+			path = UIKitPreview;
+			sourceTree = "<group>";
+		};
 		AC2AC342236C8E65003588EF = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 		AC2AC34D236C8E65003588EF /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				AC1D0CB0238CD4DC00B01DC5 /* UIKitPreview */,
 				AC9D7DF12389CF1F000C937F /* CommonViews */,
 				ACE8B0112374FDB600E48695 /* Stories */,
 				ACFA036D23745F8500ECDD23 /* HomeCells */,
@@ -116,7 +127,7 @@
 		ACFA03692374593600ECDD23 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				AC1448AC236CC3CF00FCA272 /* HomeController.swift */,
+				AC1448AC236CC3CF00FCA272 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -210,7 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1448AD236CC3CF00FCA272 /* HomeController.swift in Sources */,
+				AC1448AD236CC3CF00FCA272 /* HomeViewController.swift in Sources */,
 				AC2AC34F236C8E65003588EF /* AppDelegate.swift in Sources */,
 				ACFA036C237459A800ECDD23 /* UIView+RandomColor.swift in Sources */,
 				ACB3EBFD238772C90038060B /* UIView+Constraints.swift in Sources */,
@@ -219,6 +230,7 @@
 				ACE8B0102374FD9A00E48695 /* StoryHeader.swift in Sources */,
 				ACFA036F23745FA300ECDD23 /* PostCell.swift in Sources */,
 				ACB3EBF9238713590038060B /* OnYourMindHeader.swift in Sources */,
+				AC1D0CB2238CD4FC00B01DC5 /* ViewControllerPreviewProvider.swift in Sources */,
 				ACB3EC00238894D50038060B /* CircleImageView.swift in Sources */,
 				ACE8B0152374FE2200E48695 /* StoryCell.swift in Sources */,
 			);
